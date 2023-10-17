@@ -1,0 +1,17 @@
+object Versions {
+    val androidCoreKtx = "1.9.0"
+    val androidLifecycleKtx = "2.6.2"
+    val androidActivityCompose = "1.7.2"
+    val composeBom = "2023.03.00"
+    val composeNavigation = "2.7.3"
+    val retrofit = "2.9.0"
+    val androidCoroutine = "1.3.9"
+    val hiltAndroid = "2.45"
+    val gson = "2.10.1"
+    val gsonSquare = "2.9.0"
+    val okhttp3Version = "4.10.0"
+    val composeRuntineLifecycle = "2.6.2"
+    val composeViewModel = "2.6.2"
+    val composeCoil = "2.4.0"
+    val roomVersion = "2.5.2"
+}
