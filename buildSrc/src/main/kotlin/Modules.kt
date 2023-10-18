@@ -1,6 +1,6 @@
 object Modules {
 
-    val core = ":core"
-    val home = ":home"
-    val bookmarks = ":Bookmarks"
+    const val core = ":core"
+    const val home = ":home"
+    const val bookmarks = ":Bookmarks"
 }

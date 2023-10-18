@@ -10,10 +10,10 @@ plugins {
 
 android {
     namespace = "com.gkp.core"
-    compileSdk = 34
+    compileSdk = AppConfig.compileSDK
 
     defaultConfig {
-        minSdk = 24
+        minSdk = AppConfig.minSDK
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -29,17 +29,17 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = AppConfig.javaVersion
+        targetCompatibility = AppConfig.javaVersion
     }
     buildFeatures {
         compose = true
     }
     kotlinOptions {
-        jvmTarget = "17"
+        jvmTarget = AppConfig.javaTarget
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.3"
+        kotlinCompilerExtensionVersion = AppConfig.composeKotlinCompilerExt
     }
 }
 
@@ -52,27 +52,12 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
-    implementation(platform(Dependencies.composeBom))
-    implementation(Dependencies.composeUi)
-    implementation(Dependencies.composeUiGraphics)
-    implementation(Dependencies.composeUiToolingPreview)
-    implementation(Dependencies.composeMaterial3)
-    implementation(Dependencies.composeNavigation)
-    implementation(Dependencies.composeViewModel)
-    implementation(Dependencies.composeRuntineLifecycle)
-
-    //coil
-    implementation(Dependencies.composeCoil)
-
+    //compose
+    compose()
 
     // hilt
-    implementation(Dependencies.hiltAndroid)
-    kapt(Dependencies.hiltCompiler)
+    hilt()
 
     //room
-    implementation(Dependencies.roomRuntime)
-    annotationProcessor(Dependencies.roomCompiler)
-    ksp(Dependencies.roomCompiler)
-    implementation(Dependencies.roomCorountine)
-
+    room()
 }

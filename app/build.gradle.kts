@@ -1,5 +1,3 @@
-import org.gradle.internal.impldep.org.junit.experimental.categories.Categories.CategoryFilter.exclude
-
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -9,14 +7,14 @@ plugins {
 
 android {
     namespace = "com.gkp.newsapp"
-    compileSdk = 34
+    compileSdk = AppConfig.compileSDK
 
     defaultConfig {
         applicationId = "com.gkp.newsapp"
-        minSdk = 24
-        targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
+        minSdk = AppConfig.minSDK
+        targetSdk = AppConfig.targetSdk
+        versionCode = AppConfig.versionCode
+        versionName = AppConfig.versionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -34,17 +32,17 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = AppConfig.javaVersion
+        targetCompatibility = AppConfig.javaVersion
     }
     kotlinOptions {
-        jvmTarget = "17"
+        jvmTarget = AppConfig.javaTarget
     }
     buildFeatures {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.3"
+        kotlinCompilerExtensionVersion = AppConfig.composeKotlinCompilerExt
     }
     packaging {
         resources {
@@ -59,21 +57,20 @@ dependencies {
     implementation(Dependencies.androidCoreKtx)
     implementation(Dependencies.androidLifecycleKtx)
 
-    implementation(Dependencies.androidActivityCompose)
-    implementation(platform(Dependencies.composeBom))
-    implementation(Dependencies.composeUi)
-    implementation(Dependencies.composeUiGraphics)
-    implementation(Dependencies.composeUiToolingPreview)
-    implementation(Dependencies.composeMaterial3)
-    implementation(Dependencies.composeNavigation)
+    //compose
+    compose()
 
+    //hilt
+    hilt()
 
-    implementation(Dependencies.hiltAndroid)
-    kapt(Dependencies.hiltCompiler)
+    //Modules
+    coreModule()
+    homeModule()
+    bookmarksModule()
 
-    implementation(project(Modules.core))
-    implementation(project(Modules.home))
-    implementation(project(Modules.bookmarks))
+//    implementation(project(Modules.core))
+//    implementation(project(Modules.home))
+//    implementation(project(Modules.bookmarks))
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

@@ -7,10 +7,10 @@ plugins {
 
 android {
     namespace = "com.gkp.bookmarks"
-    compileSdk = 33
+    compileSdk = AppConfig.compileSDK
 
     defaultConfig {
-        minSdk = 24
+        minSdk = AppConfig.minSDK
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -26,43 +26,35 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = AppConfig.javaVersion
+        targetCompatibility = AppConfig.javaVersion
     }
     kotlinOptions {
-        jvmTarget = "17"
+        jvmTarget = AppConfig.javaTarget
     }
     buildFeatures {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.3"
+        kotlinCompilerExtensionVersion = AppConfig.composeKotlinCompilerExt
     }
 }
 
 dependencies {
 
-    implementation(Dependencies.androidCoreKtx)
+
     implementation(Dependencies.androidCoreKtx)
     implementation(Dependencies.androidLifecycleKtx)
-    implementation(Dependencies.androidActivityCompose)
-    implementation(platform(Dependencies.composeBom))
-    implementation(Dependencies.composeUi)
-    implementation(Dependencies.composeUiGraphics)
-    implementation(Dependencies.composeUiToolingPreview)
-    implementation(Dependencies.composeMaterial3)
-    implementation(Dependencies.composeNavigation)
-    implementation(Dependencies.composeViewModel)
-    implementation(Dependencies.composeRuntineLifecycle)
-    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
+
+    //compose
+    compose()
 
     // hilt
-    implementation(Dependencies.hiltAndroid)
-    kapt(Dependencies.hiltCompiler)
+    hilt()
 
-
-    implementation(project(Modules.core))
-
+    // Core
+    coreModule()
+//    implementation(project(Modules.core))
 
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
