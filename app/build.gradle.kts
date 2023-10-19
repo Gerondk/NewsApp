@@ -23,12 +23,17 @@ android {
     }
 
     buildTypes {
+        val key = project.property("NEWSAPP_API_KEY") as String
         release {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            buildConfigField("String","newsApiKey","\"${key}\"")
+        }
+        debug {
+            buildConfigField("String","newsApiKey","\"${key}\"")
         }
     }
     compileOptions {
@@ -40,6 +45,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = AppConfig.composeKotlinCompilerExt
