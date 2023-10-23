@@ -1,6 +1,7 @@
 package com.gkp.home.data.di
 
 import com.gkp.core.NEWS_APP_BASE_URL
+import com.gkp.core.entities.AppConfig
 import com.gkp.home.data.NewsApi
 import dagger.Module
 import dagger.Provides
@@ -17,10 +18,15 @@ import javax.inject.Singleton
 object RetrofitModule {
     @Provides
     @Singleton
-    fun providesRetrofit(): Retrofit {
+    fun providesRetrofit(appConfig: AppConfig): Retrofit {
 
         val loggingInterceptor = HttpLoggingInterceptor().apply {
-            level = HttpLoggingInterceptor.Level.BODY
+            level =
+                if (appConfig.isDebugMode)
+                    HttpLoggingInterceptor.Level.BODY
+                else
+                    HttpLoggingInterceptor.Level.NONE
+
         }
 
         val client = OkHttpClient
