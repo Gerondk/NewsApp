@@ -16,7 +16,6 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-    val tmp = BuildConfig.newsApiKey
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -30,7 +29,7 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
-        Log.d("BuildConfigT"," value $tmp")
+
     }
 }
 
