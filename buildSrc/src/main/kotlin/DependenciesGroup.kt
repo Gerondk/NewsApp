@@ -60,3 +60,18 @@ fun DependencyHandler.bookmarksModule() {
 fun DependencyHandler.homeModule() {
     moduleImplementation(Modules.home)
 }
+
+val junit5Tests = setOf(
+    Dependencies.junit5Api,
+    Dependencies.junit5Params,
+    Dependencies.assertK,
+    Dependencies.androidCoroutineTest,
+    Dependencies.turbine
+)
+fun DependencyHandler.testDependencies() {
+    junit5Tests.forEach {
+        test(it)
+    }
+    runtimeOnlyTest(Dependencies.junit5Engine)
+    debug(Dependencies.composeTest)
+}

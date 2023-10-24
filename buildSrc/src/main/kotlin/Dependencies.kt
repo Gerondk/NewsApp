@@ -16,6 +16,9 @@ object Dependencies {
     val composeHiltNavigation = "androidx.hilt:hilt-navigation-compose:${Versions.composeHiltNavigation}"
     val composeCoil = "io.coil-kt:coil-compose:${Versions.composeCoil}"
 
+    val junit5Compose = "de.mannodermaus.junit5:android-test-compose:${Versions.junit5Compose}"
+    val composeTest = "androidx.compose.ui:ui-test-manifest"
+
     val okhHttp3 = "com.squareup.okhttp3:okhttp:${Versions.okhttp3Version}"
     val okhHttp3Interceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okhttp3Version}"
     val gson = "com.google.code.gson:gson:${Versions.gson}"
@@ -23,6 +26,9 @@ object Dependencies {
     val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
 
     val androidCoroutine = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.androidCoroutine}"
+    val androidCoroutineTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.androidCoroutine}"
+    //test flows
+    val turbine = "app.cash.turbine:turbine:${Versions.turbine}"
 
     val hiltAndroid = "com.google.dagger:hilt-android:${Versions.hiltAndroid}"
     val hiltCompiler = "com.google.dagger:hilt-android-compiler:${Versions.hiltAndroid}"
@@ -34,6 +40,11 @@ object Dependencies {
     val roomCorountine = "androidx.room:room-ktx:${Versions.roomVersion}"
 
     val kspPlugin = "com.google.devtools.ksp:com.google.devtools.ksp.gradle.plugin:${Versions.kspTool}"
+
+    val junit5Api = "org.junit.jupiter:junit-jupiter-api:${Versions.junit5}"
+    val junit5Engine = "org.junit.jupiter:junit-jupiter-engine:${Versions.junit5}"
+    val junit5Params = "org.junit.jupiter:junit-jupiter-params:${Versions.junit5}"
+    val assertK = "com.willowtreeapps.assertk:assertk:${Versions.assertK}"
 
 
 }

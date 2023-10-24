@@ -24,6 +24,12 @@ fun DependencyHandler.anotationProcessor( dependency: String) {
 fun DependencyHandler.kapt( dependency: String) {
     add("kapt", dependency)
 }
+fun DependencyHandler.runtimeOnlyTest( dependency: String) {
+    add("testRuntimeOnly",dependency)
+}
+fun DependencyHandler.debug( dependency: String) {
+    add("debugImplementation",dependency)
+}
 
 fun DependencyHandler.moduleImplementation(dependencyModule: String) {
     add("implementation", project(dependencyModule))
