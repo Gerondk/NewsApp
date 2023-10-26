@@ -45,6 +45,7 @@ object Dependencies {
     val junit5Engine = "org.junit.jupiter:junit-jupiter-engine:${Versions.junit5}"
     val junit5Params = "org.junit.jupiter:junit-jupiter-params:${Versions.junit5}"
     val assertK = "com.willowtreeapps.assertk:assertk:${Versions.assertK}"
+    val mockk = "io.mockk:mockk:${Versions.mockk}"
 
 
 }

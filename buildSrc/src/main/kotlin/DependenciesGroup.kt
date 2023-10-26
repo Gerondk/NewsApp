@@ -66,7 +66,8 @@ val junit5Tests = setOf(
     Dependencies.junit5Params,
     Dependencies.assertK,
     Dependencies.androidCoroutineTest,
-    Dependencies.turbine
+    Dependencies.turbine,
+    Dependencies.mockk
 )
 fun DependencyHandler.testDependencies() {
     junit5Tests.forEach {

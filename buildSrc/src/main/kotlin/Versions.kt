@@ -21,4 +21,5 @@ object Versions {
     const val assertK = "0.27.0"
     const val turbine = "1.0.0"
     const val junit5Compose = "1.0.0-SNAPSHOT"
+    const val  mockk = "1.13.8"
 }
