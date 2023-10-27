@@ -19,4 +19,7 @@ dependencies {
     // Core
     coreModule()
 
+    // test
+    testDependencies()
+
 }
