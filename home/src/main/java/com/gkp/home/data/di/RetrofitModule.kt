@@ -19,14 +19,13 @@ object RetrofitModule {
     @Provides
     @Singleton
     fun providesRetrofit(appConfig: AppConfig): Retrofit {
-
         val loggingInterceptor = HttpLoggingInterceptor().apply {
             level =
-                if (appConfig.isDebugMode)
+                if (appConfig.isDebugMode) {
                     HttpLoggingInterceptor.Level.BODY
-                else
+                } else {
                     HttpLoggingInterceptor.Level.NONE
-
+                }
         }
 
         val client = OkHttpClient
@@ -46,5 +45,4 @@ object RetrofitModule {
     fun providesNewsApi(retrofit: Retrofit): NewsApi {
         return retrofit.create(NewsApi::class.java)
     }
-
 }

@@ -1,6 +1,5 @@
 package com.gkp.home.data
 
-
 import com.gkp.core.ResourceState
 import com.gkp.core.di.IoDispatcher
 import com.gkp.core.domain.NewsArticle
@@ -22,5 +21,4 @@ class NewsRepositoryImpl @Inject constructor(
             mapper = { it.toArticlesList() },
             apiCall = { newsApi.getTopHeadlines(country, appConfig.apiKey) }
         ).flowOn(dispatcher)
-
 }

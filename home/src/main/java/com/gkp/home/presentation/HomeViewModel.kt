@@ -17,7 +17,7 @@ class HomeViewModel @Inject constructor(
     private val getTopHeadlinesUseCase: GetTopHeadlinesUseCase
 ) : ViewModel() {
 
-    private val _uiState = MutableStateFlow(HomeUiState())
+    private val _uiState = MutableStateFlow<HomeUiState>(HomeUiState.Loading)
     val uiState = _uiState.asStateFlow()
 
     init {
@@ -28,20 +28,26 @@ class HomeViewModel @Inject constructor(
         getTopHeadlinesUseCase("us")
             .onEach { resourceState ->
                 when (resourceState) {
-                    is ResourceState.Error -> {}
+                    is ResourceState.Error -> {
+                        _uiState.update {
+                            HomeUiState.Error(errorMessage = resourceState.message)
+                        }
+                    }
+
                     ResourceState.Loading -> {
-                        _uiState.update { it.copy(isLoading = true) }
+                        _uiState.update { HomeUiState.Loading }
                     }
 
                     is ResourceState.Success -> {
                         _uiState.update {
-                            it.copy(
-                                articlesList = resourceState.data,
-                                isLoading = false
-                            )
+                            HomeUiState.Success(articles = resourceState.data)
                         }
                     }
                 }
             }.launchIn(viewModelScope)
+    }
+
+    fun retryNewsArticles() {
+        getTopNews()
     }
 }

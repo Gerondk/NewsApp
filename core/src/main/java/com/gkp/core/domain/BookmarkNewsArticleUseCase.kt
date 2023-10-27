@@ -7,5 +7,4 @@ class BookmarkNewsArticleUseCase @Inject constructor(
 ) {
     suspend operator fun invoke(article: NewsArticle) =
         bookmarksRepository.bookmarkNewsArticle(article)
-
 }

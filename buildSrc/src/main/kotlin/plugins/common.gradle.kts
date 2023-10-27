@@ -1,8 +1,6 @@
 package plugins
 
 import AppConfig
-import gradle.kotlin.dsl.accessors._376146573db9bb6b39a641d04d157273.android
-import gradle.kotlin.dsl.accessors._376146573db9bb6b39a641d04d157273.kotlinOptions
 import org.gradle.kotlin.dsl.kotlin
 
 plugins {

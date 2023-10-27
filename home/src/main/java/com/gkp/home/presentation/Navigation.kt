@@ -1,6 +1,5 @@
 package com.gkp.home.presentation
 
-
 import androidx.compose.runtime.getValue
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -19,7 +18,8 @@ fun NavGraphBuilder.homeScreen(navController: NavController) {
             onNavigateToDetail = { article ->
                 navController.currentBackStackEntry?.savedStateHandle?.set("Detail", article)
                 navController.navigate(Screens.ArticleDetailScreen.route)
-            }
+            },
+            onError = homeViewModel::retryNewsArticles
         )
     }
     composable(route = Screens.ArticleDetailScreen.route) {

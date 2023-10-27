@@ -74,9 +74,6 @@ dependencies {
     homeModule()
     bookmarksModule()
 
-//    implementation(project(Modules.core))
-//    implementation(project(Modules.home))
-//    implementation(project(Modules.bookmarks))
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

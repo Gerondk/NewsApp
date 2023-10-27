@@ -31,7 +31,6 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.gkp.core.domain.NewsArticle
 
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ArticleDetailScreen(
@@ -109,10 +108,8 @@ fun ArticleDetailScreen(
                     Text(text = newsArticle.publishedDay ?: "", fontSize = 14.sp)
                     Spacer(modifier = Modifier.height(16.dp))
                     Text(text = newsArticle.source.name, fontSize = 14.sp)
-
                 }
             }
-
         }
     }
 }

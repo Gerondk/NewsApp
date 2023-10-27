@@ -14,4 +14,3 @@ fun Article.mapToNewsArticle() =
     )
 
 fun NewsDto.toArticlesList() = articles.map { it.mapToNewsArticle() }
-

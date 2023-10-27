@@ -12,7 +12,6 @@ import com.gkp.newsapp.presentation.navigation.NewsAppGraph
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun NewsApp() {
-
     val navController = rememberNavController()
     Scaffold(
         bottomBar = {

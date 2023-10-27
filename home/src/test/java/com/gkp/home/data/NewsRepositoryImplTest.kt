@@ -26,7 +26,7 @@ internal class NewsRepositoryImplTest {
 
     @Test
     fun `news api call returns a success`() = runTest {
-        //action
+        // action
         val resourcesFlow = newsRepositoryImpl.getTopHeadlines("us")
         resourcesFlow.test {
             assertThat(awaitItem()).isInstanceOf(ResourceState.Loading::class.java)
@@ -36,13 +36,12 @@ internal class NewsRepositoryImplTest {
             assertThat(first).isEqualTo("Article1")
             cancelAndIgnoreRemainingEvents()
         }
-
     }
 
     @Test
     fun `news api call returns a error when exception is thrown`() = runTest {
         newsApi.isError = true
-        //action
+        // action
         val resourcesFlow = newsRepositoryImpl.getTopHeadlines("us")
         resourcesFlow.test {
             assertThat(awaitItem()).isInstanceOf(ResourceState.Loading::class.java)
@@ -51,5 +50,4 @@ internal class NewsRepositoryImplTest {
             cancelAndIgnoreRemainingEvents()
         }
     }
-
 }

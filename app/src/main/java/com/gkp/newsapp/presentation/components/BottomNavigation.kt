@@ -38,7 +38,6 @@ fun BottomNavigation(onItemClicked: (String) -> Unit) {
                     selectedTextColor = Color.Blue
                 )
             )
-
         }
     }
 }

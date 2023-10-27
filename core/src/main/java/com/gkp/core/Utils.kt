@@ -6,7 +6,6 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import java.util.concurrent.CancellationException
 
-
 fun <T, R> safeApiCall(
     mapper: (T) -> R,
     apiCall: suspend () -> T
@@ -18,4 +17,3 @@ fun <T, R> safeApiCall(
     emit(ResourceState.Error(cause.message))
     Log.d("ApiCallError", " error ${cause.message}")
 }
-
