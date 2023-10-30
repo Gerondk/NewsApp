@@ -1,0 +1,106 @@
+{
+  "project_info": {
+    "project_number": "912302982893",
+    "firebase_url": "https://test-e82c3.firebaseio.com",
+    "project_id": "test-e82c3",
+    "storage_bucket": "test-e82c3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:912302982893:android:dc3737143110c59df2eee4",
+        "android_client_info": {
+          "package_name": "com.gkp.cloudapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "912302982893-pvhdj93ivcigc64v1v6vhgfa3p46lj0q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gkp.cloudapp",
+            "certificate_hash": "83fba3e7b9bf2f0f3fbc7f90b75a2bf8febceb96"
+          }
+        },
+        {
+          "client_id": "912302982893-7hl175ve60nbakm8m9akfm9qgl1pjv4h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDh_xBIf0hA3bSoUaVCuubLCY-E2jb7M-8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "912302982893-7hl175ve60nbakm8m9akfm9qgl1pjv4h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:912302982893:android:c94cd2be1417c47af2eee4",
+        "android_client_info": {
+          "package_name": "com.gkp.newsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "912302982893-7hl175ve60nbakm8m9akfm9qgl1pjv4h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDh_xBIf0hA3bSoUaVCuubLCY-E2jb7M-8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "912302982893-7hl175ve60nbakm8m9akfm9qgl1pjv4h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:912302982893:android:6ff3a5a46bb3c17cf2eee4",
+        "android_client_info": {
+          "package_name": "com.gkp.restaurants"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "912302982893-7hl175ve60nbakm8m9akfm9qgl1pjv4h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDh_xBIf0hA3bSoUaVCuubLCY-E2jb7M-8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "912302982893-7hl175ve60nbakm8m9akfm9qgl1pjv4h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
