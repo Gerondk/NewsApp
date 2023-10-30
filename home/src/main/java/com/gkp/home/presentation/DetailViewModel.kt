@@ -6,8 +6,8 @@ import androidx.lifecycle.viewModelScope
 import com.gkp.core.domain.BookmarkNewsArticleUseCase
 import com.gkp.core.domain.NewsArticle
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.launch
 import javax.inject.Inject
+import kotlinx.coroutines.launch
 
 @HiltViewModel
 class DetailViewModel @Inject constructor(

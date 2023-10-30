@@ -34,7 +34,7 @@ fun NewsArticleItem(
     newsArticle: NewsArticle,
     showDelete: Boolean = false,
     onDelete: (NewsArticle) -> Unit = {},
-    onReadMore: () -> Unit = {},
+    onReadMore: () -> Unit = {}
 ) {
     Column(modifier = modifier) {
         Row {

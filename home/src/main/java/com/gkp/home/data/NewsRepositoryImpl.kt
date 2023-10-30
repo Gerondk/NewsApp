@@ -6,10 +6,10 @@ import com.gkp.core.domain.NewsArticle
 import com.gkp.core.entities.AppConfig
 import com.gkp.core.safeApiCall
 import com.gkp.home.domain.NewsRepository
+import javax.inject.Inject
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOn
-import javax.inject.Inject
 
 class NewsRepositoryImpl @Inject constructor(
     private val newsApi: NewsApi,

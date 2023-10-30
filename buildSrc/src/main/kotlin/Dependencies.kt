@@ -1,6 +1,7 @@
 object Dependencies {
     val androidCoreKtx = "androidx.core:core-ktx:${Versions.androidCoreKtx}"
     val androidLifecycleKtx = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.androidLifecycleKtx}"
+    const val androidTest =  "androidx.test.ext:junit:1.1.5"
 
     val androidActivityCompose = "androidx.activity:activity-compose:${Versions.androidActivityCompose}"
     val composeBom = "androidx.compose:compose-bom:${Versions.composeBom}"
@@ -41,11 +42,13 @@ object Dependencies {
 
     val kspPlugin = "com.google.devtools.ksp:com.google.devtools.ksp.gradle.plugin:${Versions.kspTool}"
 
-    val junit5Api = "org.junit.jupiter:junit-jupiter-api:${Versions.junit5}"
-    val junit5Engine = "org.junit.jupiter:junit-jupiter-engine:${Versions.junit5}"
-    val junit5Params = "org.junit.jupiter:junit-jupiter-params:${Versions.junit5}"
-    val assertK = "com.willowtreeapps.assertk:assertk:${Versions.assertK}"
-    val mockk = "io.mockk:mockk:${Versions.mockk}"
+    const val junit5Api = "org.junit.jupiter:junit-jupiter-api:${Versions.junit5}"
+    const val junit5Engine = "org.junit.jupiter:junit-jupiter-engine:${Versions.junit5}"
+    const val junit5Params = "org.junit.jupiter:junit-jupiter-params:${Versions.junit5}"
+    const val  jUnit4 = "junit:junit:${Versions.jUnit4}"
+    const val jUnit4Runtime = "org.junit.vintage:junit-vintage-engine:${Versions.junit5}"
+    const val assertK = "com.willowtreeapps.assertk:assertk:${Versions.assertK}"
+    const val mockk = "io.mockk:mockk:${Versions.mockk}"
 
 
 }

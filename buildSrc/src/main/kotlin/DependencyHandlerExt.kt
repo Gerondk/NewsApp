@@ -12,7 +12,7 @@ fun DependencyHandler.test( dependency: String) {
     add("testImplementation", dependency)
 }
 fun DependencyHandler.androidTest( dependency: String) {
-    add("androidTest", dependency)
+    add("androidTestImplementation", dependency)
 }
 fun DependencyHandler.ksp( dependency: String) {
     add("ksp", dependency)

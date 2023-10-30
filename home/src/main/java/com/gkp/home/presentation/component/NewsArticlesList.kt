@@ -15,7 +15,7 @@ import com.gkp.core.ui.NewsArticleItem
 @Composable
 fun NewsArticleList(
     articles: List<NewsArticle>,
-    onNavigateToDetail: (NewsArticle) -> Unit,
+    onNavigateToDetail: (NewsArticle) -> Unit
 ) {
     LazyColumn(
         contentPadding = PaddingValues(vertical = 16.dp),

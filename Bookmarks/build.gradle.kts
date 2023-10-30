@@ -10,7 +10,7 @@ dependencies {
     implementation(Dependencies.androidCoreKtx)
     implementation(Dependencies.androidLifecycleKtx)
 
-    //compose
+    // compose
     compose()
 
     // hilt
@@ -21,5 +21,4 @@ dependencies {
 
     // test
     testDependencies()
-
 }

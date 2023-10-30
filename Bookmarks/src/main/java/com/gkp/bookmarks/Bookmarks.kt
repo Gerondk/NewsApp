@@ -18,12 +18,12 @@ import com.gkp.core.domain.NewsArticle
 @Composable
 internal fun Bookmarks(
     uiState: BookmarksUiState,
-    onDeleteBookmark: (NewsArticle) -> Unit,
+    onDeleteBookmark: (NewsArticle) -> Unit
 ) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(text = "Bookmarks") },
+                title = { Text(text = "Bookmarks") }
 //                 actions = {
 //                     IconButton(onClick = { /*TODO*/ }) {
 //                         Icon(
@@ -34,13 +34,13 @@ internal fun Bookmarks(
 //                     }
 //                 }
             )
-        },
+        }
 
-        ) { paddingValues ->
+    ) { paddingValues ->
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(paddingValues),
+                .padding(paddingValues)
         ) {
             when (uiState) {
                 BookmarksUiState.Loading -> {

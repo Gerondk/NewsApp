@@ -6,11 +6,11 @@ import com.gkp.core.domain.DeleteBookmarkedNewsArticleUseCase
 import com.gkp.core.domain.GetBookmarkedArticles
 import com.gkp.core.domain.NewsArticle
 import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.mapLatest
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 @HiltViewModel
 class BookmarksViewModel @Inject constructor(

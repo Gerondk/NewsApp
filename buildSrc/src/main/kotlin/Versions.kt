@@ -18,6 +18,7 @@ object Versions {
     const val kspTool = "1.8.10-1.0.9"
 
     const val junit5 = "5.9.3"
+    const val jUnit4 = "4.13.2"
     const val assertK = "0.27.0"
     const val turbine = "1.0.0"
     const val junit5Compose = "1.0.0-SNAPSHOT"

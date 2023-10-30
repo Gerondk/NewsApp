@@ -31,7 +31,9 @@ internal class NewsRepositoryImplTest {
         resourcesFlow.test {
             assertThat(awaitItem()).isInstanceOf(ResourceState.Loading::class.java)
             val success = awaitItem() as ResourceState.Success
-            assertThat(success).isEqualTo(ResourceState.Success(newsApi.articlesList.map { it.mapToNewsArticle() }))
+            assertThat(success).isEqualTo(
+                ResourceState.Success(newsApi.articlesList.map { it.mapToNewsArticle() })
+            )
             val first = success.data.first().author
             assertThat(first).isEqualTo("Article1")
             cancelAndIgnoreRemainingEvents()

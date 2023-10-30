@@ -20,7 +20,7 @@ import com.gkp.home.presentation.component.NewsArticleList
 internal fun Home(
     homeUiState: HomeUiState,
     onNavigateToDetail: (NewsArticle) -> Unit,
-    onError: () -> Unit,
+    onError: () -> Unit
 ) {
     Scaffold(
         topBar = {
@@ -30,7 +30,7 @@ internal fun Home(
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(paddingValues),
+                .padding(paddingValues)
         ) {
             when (homeUiState) {
                 is HomeUiState.Error -> {

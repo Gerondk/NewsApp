@@ -14,7 +14,7 @@ import com.gkp.core.ui.NewsArticleItem
 @Composable
 fun BookmarkedArticlesList(
     articles: List<NewsArticle>,
-    onDeleteBookmark: (NewsArticle) -> Unit,
+    onDeleteBookmark: (NewsArticle) -> Unit
 ) {
     val uriHandler = LocalUriHandler.current
     LazyColumn(

@@ -4,12 +4,12 @@ import com.gkp.core.data.news_article.local.NewsArticleDao
 import com.gkp.core.di.IoDispatcher
 import com.gkp.core.domain.BookmarksRepository
 import com.gkp.core.domain.NewsArticle
+import javax.inject.Inject
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
-import javax.inject.Inject
 
 class BookmarksRepositoryImpl @Inject constructor(
     private val newsArticleDao: NewsArticleDao,

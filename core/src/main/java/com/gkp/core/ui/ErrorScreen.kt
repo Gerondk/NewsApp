@@ -15,7 +15,7 @@ fun ErrorScreen(
     modifier: Modifier = Modifier,
     message: String,
     buttonText: String,
-    onError: () -> Unit,
+    onError: () -> Unit
 ) {
     Column(modifier = modifier) {
         Text(text = message)

@@ -11,28 +11,25 @@ android {
     namespace = "com.gkp.home"
 }
 
-
-
 dependencies {
     implementation(Dependencies.androidCoreKtx)
     implementation(Dependencies.androidLifecycleKtx)
 
-    //compose
+    // compose
     compose()
 
-    //retrofit
+    // retrofit
     retrofit()
 
-    //coroutine
+    // coroutine
     implementation(Dependencies.androidCoroutine)
 
     // hilt
     hilt()
 
-    //Module
+    // Module
     coreModule()
 
-    //test
+    // test
     testDependencies()
-
 }

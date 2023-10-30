@@ -30,10 +30,10 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            buildConfigField("String","newsApiKey","\"${key}\"")
+            buildConfigField("String", "newsApiKey", "\"${key}\"")
         }
         debug {
-            buildConfigField("String","newsApiKey","\"${key}\"")
+            buildConfigField("String", "newsApiKey", "\"${key}\"")
         }
     }
     compileOptions {
@@ -57,23 +57,21 @@ android {
     }
 }
 
-
 dependencies {
 
     implementation(Dependencies.androidCoreKtx)
     implementation(Dependencies.androidLifecycleKtx)
 
-    //compose
+    // compose
     compose()
 
-    //hilt
+    // hilt
     hilt()
 
-    //Modules
+    // Modules
     coreModule()
     homeModule()
     bookmarksModule()
-
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
