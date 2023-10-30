@@ -1,7 +1,7 @@
 package com.gkp.core.domain
 
 import android.os.Parcelable
-import com.gkp.core.data.news_article.model.Source
+import com.gkp.core.data.newsArticles.model.Source
 import kotlinx.parcelize.Parcelize
 
 @Parcelize

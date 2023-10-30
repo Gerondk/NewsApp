@@ -1,8 +1,8 @@
-package com.gkp.core.data.news_article.local
+package com.gkp.core.data.newsArticles.local
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.gkp.core.data.news_article.model.Source
+import com.gkp.core.data.newsArticles.model.Source
 
 @Entity
 data class NewsArticleEntity(

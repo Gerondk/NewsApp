@@ -2,8 +2,8 @@ package com.gkp.core.di
 
 import android.content.Context
 import androidx.room.Room
-import com.gkp.core.data.news_article.local.NewsArticleDatabase
-import com.gkp.core.data.news_article.local.NewsArticlesTypConverters
+import com.gkp.core.data.newsArticles.local.NewsArticleDatabase
+import com.gkp.core.data.newsArticles.local.NewsArticlesTypConverters
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

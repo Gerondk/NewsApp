@@ -1,6 +1,6 @@
-package com.gkp.core.data.news_article
+package com.gkp.core.data.newsArticles
 
-import com.gkp.core.data.news_article.local.NewsArticleEntity
+import com.gkp.core.data.newsArticles.local.NewsArticleEntity
 import com.gkp.core.domain.NewsArticle
 
 fun NewsArticleEntity.toNewsArticle() =

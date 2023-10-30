@@ -1,6 +1,6 @@
 package com.gkp.home.data
 
-import com.gkp.core.data.news_article.model.Source
+import com.gkp.core.data.newsArticles.model.Source
 
 data class Article(
     val author: String,

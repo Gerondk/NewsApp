@@ -1,6 +1,6 @@
 package com.gkp.core.di
 
-import com.gkp.core.data.news_article.BookmarksRepositoryImpl
+import com.gkp.core.data.newsArticles.BookmarksRepositoryImpl
 import com.gkp.core.domain.BookmarksRepository
 import dagger.Binds
 import dagger.Module

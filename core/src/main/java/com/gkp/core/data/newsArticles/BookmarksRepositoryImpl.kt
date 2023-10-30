@@ -1,6 +1,6 @@
-package com.gkp.core.data.news_article
+package com.gkp.core.data.newsArticles
 
-import com.gkp.core.data.news_article.local.NewsArticleDao
+import com.gkp.core.data.newsArticles.local.NewsArticleDao
 import com.gkp.core.di.IoDispatcher
 import com.gkp.core.domain.BookmarksRepository
 import com.gkp.core.domain.NewsArticle

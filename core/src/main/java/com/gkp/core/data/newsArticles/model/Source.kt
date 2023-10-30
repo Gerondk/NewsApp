@@ -1,4 +1,4 @@
-package com.gkp.core.data.news_article.model
+package com.gkp.core.data.newsArticles.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

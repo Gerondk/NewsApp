@@ -1,8 +1,8 @@
-package com.gkp.core.data.news_article.local
+package com.gkp.core.data.newsArticles.local
 
 import androidx.room.ProvidedTypeConverter
 import androidx.room.TypeConverter
-import com.gkp.core.data.news_article.model.Source
+import com.gkp.core.data.newsArticles.model.Source
 
 @ProvidedTypeConverter
 class NewsArticlesTypConverters {

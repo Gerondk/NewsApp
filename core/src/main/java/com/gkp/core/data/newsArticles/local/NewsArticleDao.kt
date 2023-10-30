@@ -1,4 +1,4 @@
-package com.gkp.core.data.news_article.local
+package com.gkp.core.data.newsArticles.local
 
 import androidx.room.Dao
 import androidx.room.Delete
