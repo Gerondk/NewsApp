@@ -19,5 +19,3 @@ subprojects {
         disabledRules.set(setOf())
     }
 }
-
-

@@ -64,9 +64,9 @@ class HomeViewModelTest {
     fun `loading and error states are triggered`() = runTest {
         val errorMessage = "Network error"
         every { getTopHeadlinesUseCase(any()) } returns
-                flowOf(
-                    ResourceState.Error(message = errorMessage)
-                )
+            flowOf(
+                ResourceState.Error(message = errorMessage)
+            )
 
         homeViewModel = HomeViewModel(getTopHeadlinesUseCase)
 
