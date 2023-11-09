@@ -79,3 +79,7 @@ fun DependencyHandler.testDependencies() {
     debug(Dependencies.composeTest)
     androidTest(Dependencies.androidTest)
 }
+
+fun DependencyHandler.fireBase() {
+    platformImplementation(Dependencies.fireBaseBOM)
+}

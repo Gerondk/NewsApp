@@ -50,5 +50,7 @@ object Dependencies {
     const val assertK = "com.willowtreeapps.assertk:assertk:${Versions.assertK}"
     const val mockk = "io.mockk:mockk:${Versions.mockk}"
 
+    const val fireBaseBOM = "com.google.firebase:firebase-bom:${Versions.fireBaseBomVersion}"
+
 
 }

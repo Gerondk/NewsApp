@@ -23,4 +23,6 @@ object Versions {
     const val turbine = "1.0.0"
     const val junit5Compose = "1.0.0-SNAPSHOT"
     const val  mockk = "1.13.8"
+
+    const val  fireBaseBomVersion = "32.4.1"
 }

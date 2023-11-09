@@ -43,3 +43,5 @@ android {
         kotlinCompilerExtensionVersion = AppConfig.composeKotlinCompilerExt
     }
 }
+
+tasks.getByPath("preBuild").dependsOn("ktlintCheck")

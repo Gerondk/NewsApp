@@ -1,13 +1,12 @@
 package com.gkp.home.presentation
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.gkp.core.domain.BookmarkNewsArticleUseCase
 import com.gkp.core.domain.NewsArticle
 import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @HiltViewModel
 class DetailViewModel @Inject constructor(
@@ -17,7 +16,6 @@ class DetailViewModel @Inject constructor(
     fun bookmarkNewsArticle(newsArticle: NewsArticle) {
         viewModelScope.launch {
             bookmarkNewsArticleUseCase(newsArticle)
-            Log.d(" BookmarkArt", "Article saved")
         }
     }
 }
