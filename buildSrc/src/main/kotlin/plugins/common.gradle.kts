@@ -44,4 +44,14 @@ android {
     }
 }
 
+// ktlintCheck before Build
 tasks.getByPath("preBuild").dependsOn("ktlintCheck")
+
+// log the  test result of each test in the console.
+tasks.withType(Test::class) {
+    testLogging {
+        showStandardStreams = true
+        setEvents(listOf("skipped", "passed", "failed"))
+        setExceptionFormat("full")
+    }
+}

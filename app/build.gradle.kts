@@ -24,7 +24,7 @@ android {
     }
 
     buildTypes {
-        val key = project.property("NEWSAPP_API_KEY") as String
+        val key = System.getenv("NEWSAPP_API_KEY") ?: project.property("NEWSAPP_API_KEY")
         release {
             isMinifyEnabled = false
             proguardFiles(
