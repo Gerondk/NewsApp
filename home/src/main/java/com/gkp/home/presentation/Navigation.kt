@@ -19,7 +19,8 @@ fun NavGraphBuilder.homeScreen(navController: NavController) {
                 navController.currentBackStackEntry?.savedStateHandle?.set("Detail", article)
                 navController.navigate(Screens.ArticleDetailScreen.route)
             },
-            onError = homeViewModel::retryNewsArticles
+            onError = homeViewModel::retryNewsArticles,
+            onSelectedSource = homeViewModel::onSelectedSource
         )
     }
     composable(route = Screens.ArticleDetailScreen.route) {

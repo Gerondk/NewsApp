@@ -47,6 +47,17 @@ class HomeViewModel @Inject constructor(
             }.launchIn(viewModelScope)
     }
 
+    fun onSelectedSource(source: String) {
+        _uiState.update {
+            val uiSuccess = it as HomeUiState.Success
+            if (it.source == source) {
+                uiSuccess.copy(source = null)
+            } else {
+                uiSuccess.copy(source = source)
+            }
+        }
+    }
+
     fun retryNewsArticles() {
         getTopNews()
     }
