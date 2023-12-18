@@ -1,6 +1,9 @@
 package com.gkp.home.presentation.component
 
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.LinearOutSlowInEasing
+import androidx.compose.animation.core.tween
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
@@ -22,6 +25,7 @@ import androidx.compose.ui.unit.dp
 import com.gkp.core.domain.NewsArticle
 import com.gkp.core.ui.NewsArticleItem
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun NewsArticleList(
     articles: List<NewsArticle>,
@@ -52,6 +56,12 @@ fun NewsArticleList(
                     item.urlToImage?.let {
                         NewsArticleItem(
                             modifier = Modifier
+                                .animateItemPlacement(
+                                    animationSpec = tween(
+                                        easing = LinearOutSlowInEasing,
+                                        durationMillis = 500
+                                    )
+                                )
                                 .fillMaxWidth()
                                 .clickable { onNavigateToDetail(item) },
                             item
