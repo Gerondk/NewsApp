@@ -40,7 +40,10 @@ class HomeViewModel @Inject constructor(
 
                     is ResourceState.Success -> {
                         _uiState.update {
-                            HomeUiState.Success(articles = resourceState.data)
+                            HomeUiState.Success(
+                                articles = resourceState.data
+                                    .filterNot { it.urlToImage == null }
+                            )
                         }
                     }
                 }

@@ -8,8 +8,9 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -25,7 +26,7 @@ import androidx.compose.ui.unit.dp
 import com.gkp.core.domain.NewsArticle
 import com.gkp.core.ui.NewsArticleItem
 
-@OptIn(ExperimentalFoundationApi::class)
+@OptIn(ExperimentalFoundationApi::class, ExperimentalLayoutApi::class)
 @Composable
 fun NewsArticleList(
     articles: List<NewsArticle>,
@@ -34,9 +35,10 @@ fun NewsArticleList(
     onSelectedSource: (String) -> Unit
 ) {
     Column(modifier = Modifier.fillMaxSize()) {
-        Row(
+        FlowRow(
             modifier = Modifier.horizontalScroll(rememberScrollState()),
-            horizontalArrangement = Arrangement.spacedBy(5.dp)
+            horizontalArrangement = Arrangement.spacedBy(5.dp),
+            maxItemsInEachRow = 6
         ) {
             sources.forEach { source ->
                 Button(
