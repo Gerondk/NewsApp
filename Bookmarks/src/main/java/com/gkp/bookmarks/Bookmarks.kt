@@ -1,10 +1,14 @@
 package com.gkp.bookmarks
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -23,16 +27,17 @@ internal fun Bookmarks(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(text = "Bookmarks") }
-//                 actions = {
-//                     IconButton(onClick = { /*TODO*/ }) {
-//                         Icon(
-//                             imageVector = Icons.Default.Delete,
-//                             contentDescription = "Delete"
-//                         )
-//
-//                     }
-//                 }
+                title = {
+                    Row(
+                        Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.Center
+                    ) {
+                        Text(
+                            text = "Bookmarks",
+                            style = MaterialTheme.typography.headlineLarge
+                        )
+                    }
+                }
             )
         }
 
