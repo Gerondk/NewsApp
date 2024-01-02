@@ -57,8 +57,14 @@ fun NewsAppTheme(
     if (!view.isInEditMode) {
         SideEffect {
             val window = (view.context as Activity).window
-            window.statusBarColor = colorScheme.background.toArgb()
-            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = !darkTheme
+            with(window) {
+                statusBarColor = colorScheme.background.toArgb()
+                navigationBarColor = colorScheme.background.toArgb()
+            }
+            with(WindowCompat.getInsetsController(window, view)) {
+                isAppearanceLightStatusBars = !darkTheme
+                isAppearanceLightNavigationBars = !darkTheme
+            }
         }
     }
 
