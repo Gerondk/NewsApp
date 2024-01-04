@@ -1,7 +1,7 @@
 object Versions {
     const val androidCoreKtx = "1.9.0"
     const val androidLifecycleKtx = "2.6.2"
-    const val androidActivityCompose = "1.7.2"
+    const val androidActivityCompose = "1.8.2"
     const val composeBom = "2023.03.00"
     const val composeNavigation = "2.7.3"
     const val retrofit = "2.9.0"
