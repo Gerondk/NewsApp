@@ -6,25 +6,22 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
+import androidx.navigation.NavDestination
+import androidx.navigation.NavDestination.Companion.hierarchy
 import com.gkp.newsapp.presentation.navigation.bottomNavigationItems
 
 @Composable
-fun BottomNavigation(onItemClicked: (String) -> Unit) {
-    var selectedIndex by remember {
-        mutableIntStateOf(0)
-    }
+fun BottomNavigation(
+    onItemClicked: (String) -> Unit,
+    currentDestination: NavDestination?,
+) {
     NavigationBar {
         bottomNavigationItems.forEachIndexed { index, item ->
             NavigationBarItem(
                 label = { Text(text = item.title) },
-                selected = index == selectedIndex,
+                selected = currentDestination?.hierarchy?.any { it.route == item.title } == true,
                 onClick = {
-                    selectedIndex = index
                     onItemClicked(item.title)
                 },
                 icon = {
