@@ -81,7 +81,8 @@ fun ArticleDetailScreen(
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(paddingValues)
+                .padding(top = paddingValues.calculateTopPadding())
+
         ) {
             LazyColumn(contentPadding = PaddingValues(10.dp)) {
                 item {

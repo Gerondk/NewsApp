@@ -45,7 +45,7 @@ internal fun Bookmarks(
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(paddingValues)
+                .padding(top = paddingValues.calculateTopPadding())
         ) {
             when (uiState) {
                 BookmarksUiState.Loading -> {

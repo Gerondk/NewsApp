@@ -14,13 +14,15 @@ import com.gkp.newsapp.presentation.navigation.bottomNavigationItems
 @Composable
 fun BottomNavigation(
     onItemClicked: (String) -> Unit,
-    currentDestination: NavDestination?,
+    currentDestination: NavDestination?
 ) {
     NavigationBar {
-        bottomNavigationItems.forEachIndexed { index, item ->
+        bottomNavigationItems.forEachIndexed { _, item ->
             NavigationBarItem(
                 label = { Text(text = item.title) },
-                selected = currentDestination?.hierarchy?.any { it.route == item.title } == true,
+                selected = currentDestination?.hierarchy?.any {
+                    it.route == item.title
+                } == true,
                 onClick = {
                     onItemClicked(item.title)
                 },

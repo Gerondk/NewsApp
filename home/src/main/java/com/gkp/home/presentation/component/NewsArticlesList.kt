@@ -38,7 +38,7 @@ fun NewsArticleList(
         FlowRow(
             modifier = Modifier.horizontalScroll(rememberScrollState()),
             horizontalArrangement = Arrangement.spacedBy(5.dp),
-            maxItemsInEachRow = 6
+            maxItemsInEachRow = 10
         ) {
             sources.forEach { source ->
                 Button(
