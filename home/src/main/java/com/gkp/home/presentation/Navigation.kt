@@ -9,6 +9,7 @@ import androidx.navigation.compose.composable
 import com.gkp.core.Screens
 import com.gkp.core.domain.NewsArticle
 
+private const val NEWS_ARTICLES_DETAIL_ARG = "Detail"
 fun NavGraphBuilder.homeScreen(navController: NavController) {
     composable(route = Screens.HomeScreen.route) {
         val homeViewModel = hiltViewModel<HomeViewModel>()
@@ -16,7 +17,10 @@ fun NavGraphBuilder.homeScreen(navController: NavController) {
         Home(
             homeUiState,
             onNavigateToDetail = { article ->
-                navController.currentBackStackEntry?.savedStateHandle?.set("Detail", article)
+                navController.currentBackStackEntry?.savedStateHandle?.set(
+                    NEWS_ARTICLES_DETAIL_ARG,
+                    article
+                )
                 navController.navigate(Screens.ArticleDetailScreen.route)
             },
             onError = homeViewModel::retryNewsArticles,
@@ -26,7 +30,9 @@ fun NavGraphBuilder.homeScreen(navController: NavController) {
     composable(route = Screens.ArticleDetailScreen.route) {
         val detailViewModel = hiltViewModel<DetailViewModel>()
         val newsArticle =
-            navController.previousBackStackEntry?.savedStateHandle?.get<NewsArticle>("Detail")
+            navController.previousBackStackEntry?.savedStateHandle?.get<NewsArticle>(
+                NEWS_ARTICLES_DETAIL_ARG
+            )
         newsArticle?.let { article ->
             ArticleDetailScreen(
                 newsArticle = article,

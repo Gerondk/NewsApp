@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Bookmark
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
@@ -61,6 +62,13 @@ fun NewsArticleItem(
                 )
                 Text(text = newsArticle.author ?: "", fontSize = 15.sp)
                 Text(text = newsArticle.publishedDay ?: "", fontSize = 15.sp)
+            }
+            if (!showDelete && newsArticle.isBookMarked) {
+                Spacer(modifier = Modifier.width(16.dp))
+                Icon(
+                    imageVector = Icons.Filled.Bookmark,
+                    contentDescription = "BookMarked"
+                )
             }
             if (showDelete) {
                 Spacer(modifier = Modifier.width(16.dp))

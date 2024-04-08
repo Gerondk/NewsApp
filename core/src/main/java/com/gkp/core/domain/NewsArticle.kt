@@ -13,5 +13,6 @@ data class NewsArticle(
     val urlToImage: String? = null,
     val publishedDay: String? = null,
     val content: String? = null,
-    val source: Source
+    val source: Source,
+    val isBookMarked: Boolean = false
 ) : Parcelable

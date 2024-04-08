@@ -52,16 +52,18 @@ fun ArticleDetailScreen(
                 },
                 title = { Text(text = "Article") },
                 actions = {
-                    IconButton(onClick = { onBookmark(newsArticle) }) {
-                        Icon(
-                            imageVector = Icons.Outlined.BookmarkBorder,
-                            contentDescription = "bookmark"
-                        )
+                    if (!newsArticle.isBookMarked) {
+                        IconButton(onClick = { onBookmark(newsArticle) }) {
+                            Icon(
+                                imageVector = Icons.Outlined.BookmarkBorder,
+                                contentDescription = "bookmark"
+                            )
+                        }
                     }
                     IconButton(onClick = { /*TODO*/ }) {
                         Icon(
                             imageVector = Icons.Default.Share,
-                            contentDescription = "bookmark"
+                            contentDescription = "Share"
                         )
                     }
                     IconButton(
