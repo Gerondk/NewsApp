@@ -54,7 +54,7 @@ fun NewsArticleItem(
             ) {
                 Text(
                     text = newsArticle.title,
-                    fontSize = 20.sp,
+                    fontSize = 17.sp,
                     fontWeight = FontWeight.Bold,
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis
