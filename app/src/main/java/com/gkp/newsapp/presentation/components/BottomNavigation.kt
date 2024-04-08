@@ -20,9 +20,7 @@ fun BottomNavigation(
         bottomNavigationItems.forEachIndexed { _, item ->
             NavigationBarItem(
                 label = { Text(text = item.title) },
-                selected = currentDestination?.hierarchy?.any {
-                    it.route == item.title
-                } == true,
+                selected = currentDestination.isNavigationBarItemSelected(item.title),
                 onClick = {
                     onItemClicked(item.title)
                 },
@@ -40,3 +38,6 @@ fun BottomNavigation(
         }
     }
 }
+
+private fun NavDestination?.isNavigationBarItemSelected(itemRoute: String): Boolean =
+    this?.hierarchy?.any { it.route == itemRoute } == true
