@@ -7,6 +7,7 @@ import assertk.assertions.isEqualTo
 import assertk.assertions.isInstanceOf
 import com.gkp.core.ResourceState
 import com.gkp.core.data.newsArticles.model.Source
+import com.gkp.core.domain.GetBookmarkedArticles
 import com.gkp.core.domain.NewsArticle
 import com.gkp.home.data.MainCoroutineExtension
 import com.gkp.home.domain.GetTopHeadlinesUseCase
@@ -23,6 +24,7 @@ import org.junit.jupiter.api.extension.ExtendWith
 @ExtendWith(MainCoroutineExtension::class)
 class HomeViewModelTest {
     private val getTopHeadlinesUseCase = mockk<GetTopHeadlinesUseCase>()
+    private val getBookmarkedArticles = mockk<GetBookmarkedArticles>()
     private lateinit var homeViewModel: HomeViewModel
 
     @BeforeEach
@@ -33,7 +35,9 @@ class HomeViewModelTest {
     @Test
     fun `only loading state is triggered`() = runTest {
         every { getTopHeadlinesUseCase(any()) } returns flowOf()
-        homeViewModel = HomeViewModel(getTopHeadlinesUseCase)
+        every { getBookmarkedArticles() } returns flowOf()
+
+        homeViewModel = HomeViewModel(getTopHeadlinesUseCase, getBookmarkedArticles)
         homeViewModel.uiState.test {
             assertThat(awaitItem()).isEqualTo(HomeUiState.Loading)
             cancelAndIgnoreRemainingEvents()
@@ -43,11 +47,22 @@ class HomeViewModelTest {
     @Test
     fun ` loading and success states are triggered`() = runTest {
         val source = Source(id = "", name = "")
-        val firstArticle = NewsArticle(id = 1, title = "title", source = source)
-        val secondArticle = NewsArticle(id = 2, title = "title", source = source)
+        val firstArticle = NewsArticle(
+            id = 1,
+            title = "title",
+            source = source,
+            urlToImage = "urlToImage"
+        )
+        val secondArticle = NewsArticle(
+            id = 2,
+            title = "title2",
+            source = source,
+            urlToImage = "urlToImage"
+        )
         val articles = listOf(firstArticle, secondArticle)
         every { getTopHeadlinesUseCase(any()) } returns flowOf(ResourceState.Success(articles))
-        homeViewModel = HomeViewModel(getTopHeadlinesUseCase)
+        every { getBookmarkedArticles() } returns flowOf(listOf(firstArticle))
+        homeViewModel = HomeViewModel(getTopHeadlinesUseCase, getBookmarkedArticles)
 
         homeViewModel.uiState.test {
             val loadingEmission = awaitItem()
@@ -55,7 +70,7 @@ class HomeViewModelTest {
             val successEmission = awaitItem()
             assertThat(successEmission).isInstanceOf(HomeUiState.Success::class.java)
             val success = successEmission as HomeUiState.Success
-            assertThat(success.articles).contains(firstArticle)
+            assertThat(success.articles).contains(firstArticle.copy(isBookMarked = true))
             assertThat(success.articles).contains(secondArticle)
         }
     }
@@ -63,12 +78,11 @@ class HomeViewModelTest {
     @Test
     fun `loading and error states are triggered`() = runTest {
         val errorMessage = "Network error"
-        every { getTopHeadlinesUseCase(any()) } returns
-            flowOf(
-                ResourceState.Error(message = errorMessage)
-            )
-
-        homeViewModel = HomeViewModel(getTopHeadlinesUseCase)
+        every { getBookmarkedArticles() } returns flowOf(emptyList())
+        every { getTopHeadlinesUseCase(any()) } returns flowOf(
+            ResourceState.Error(message = errorMessage)
+        )
+        homeViewModel = HomeViewModel(getTopHeadlinesUseCase, getBookmarkedArticles)
 
         homeViewModel.uiState.test {
             val loadingEmission = awaitItem()
@@ -83,7 +97,8 @@ class HomeViewModelTest {
     @Test
     fun `retry calls invokes getTopHeadlines`() {
         every { getTopHeadlinesUseCase(any()) } returns flowOf()
-        homeViewModel = HomeViewModel(getTopHeadlinesUseCase)
+        every { getBookmarkedArticles() } returns flowOf()
+        homeViewModel = HomeViewModel(getTopHeadlinesUseCase, getBookmarkedArticles)
 
         homeViewModel.retryNewsArticles()
 
