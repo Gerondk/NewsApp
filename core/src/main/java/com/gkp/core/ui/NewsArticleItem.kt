@@ -41,7 +41,7 @@ fun NewsArticleItem(
         Row {
             AsyncImage(
                 modifier = Modifier
-                    .size(100.dp)
+                    .size(80.dp)
                     .clip(RoundedCornerShape(20.dp)),
                 model = newsArticle.urlToImage ?: R.drawable.place_holder,
                 contentDescription = newsArticle.title,
