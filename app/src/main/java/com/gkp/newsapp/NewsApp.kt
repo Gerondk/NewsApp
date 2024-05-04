@@ -17,7 +17,7 @@ import com.gkp.newsapp.presentation.navigation.topDestinationRoutes
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun NewsApp() {
+fun NewsApp(onDarkTheme: (Boolean?) -> Unit) {
     val navController = rememberNavController()
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = navBackStackEntry?.destination
@@ -41,7 +41,8 @@ fun NewsApp() {
     ) { paddingValues ->
         NewsAppGraph(
             modifier = Modifier.padding(paddingValues),
-            navController = navController
+            navController = navController,
+            onDarkTheme = onDarkTheme
         )
     }
 }

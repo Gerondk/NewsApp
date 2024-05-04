@@ -10,7 +10,10 @@ import com.gkp.core.Screens
 import com.gkp.core.domain.NewsArticle
 
 private const val NEWS_ARTICLES_DETAIL_ARG = "Detail"
-fun NavGraphBuilder.homeScreen(navController: NavController) {
+fun NavGraphBuilder.homeScreen(
+    navController: NavController,
+    onDarkTheme: (Boolean?) -> Unit
+) {
     composable(route = Screens.HomeScreen.route) {
         val homeViewModel = hiltViewModel<HomeViewModel>()
         val homeUiState by homeViewModel.uiState.collectAsStateWithLifecycle()
@@ -24,7 +27,8 @@ fun NavGraphBuilder.homeScreen(navController: NavController) {
                 navController.navigate(Screens.ArticleDetailScreen.route)
             },
             onError = homeViewModel::retryNewsArticles,
-            onSelectedSource = homeViewModel::onSelectedSource
+            onSelectedSource = homeViewModel::onSelectedSource,
+            onDarkTheme = onDarkTheme
         )
     }
     composable(route = Screens.ArticleDetailScreen.route) {

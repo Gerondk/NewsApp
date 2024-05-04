@@ -60,8 +60,18 @@ fun NewsArticleItem(
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis
                 )
-                Text(text = newsArticle.author ?: "", fontSize = 15.sp)
-                Text(text = newsArticle.publishedDay ?: "", fontSize = 15.sp)
+                Text(
+                    text = newsArticle.author ?: "",
+                    fontSize = 15.sp,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis
+                )
+                Text(
+                    text = newsArticle.publishedDay ?: "",
+                    fontSize = 15.sp,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis
+                )
             }
             if (!showDelete && newsArticle.isBookMarked) {
                 Spacer(modifier = Modifier.width(16.dp))
