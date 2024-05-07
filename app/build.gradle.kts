@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -62,6 +64,8 @@ android {
 tasks.getByPath("preBuild").dependsOn("ktlintCheck")
 
 dependencies {
+
+    implementation("androidx.core:core-splashscreen:1.0.1")
 
     implementation(Dependencies.androidCoreKtx)
     implementation(Dependencies.androidLifecycleKtx)

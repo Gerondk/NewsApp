@@ -23,6 +23,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -41,7 +42,8 @@ internal fun Home(
     onNavigateToDetail: (NewsArticle) -> Unit,
     onError: () -> Unit,
     onSelectedSource: (String) -> Unit,
-    onDarkTheme: (Boolean?) -> Unit
+    onDarkTheme: (Boolean?) -> Unit,
+    onLoadingComplete: () -> Unit
 ) {
     var showSettingDialog by remember {
         mutableStateOf(false)
@@ -100,6 +102,11 @@ internal fun Home(
             }
         )
     }
+
+    LaunchedEffect(Unit) {
+        onLoadingComplete()
+    }
+
     Scaffold(
         topBar = {
             TopAppBar(

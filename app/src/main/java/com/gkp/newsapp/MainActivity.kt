@@ -16,19 +16,27 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.gkp.newsapp.ui.theme.NewsAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+    var isLoadingComplete = false
     override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        // Splash Screen must before setContent and enableEdgeToEdge
+        installSplashScreen().setKeepOnScreenCondition {
+            !isLoadingComplete
+        }
         enableEdgeToEdge(
             SystemBarStyle.light(
                 Color.Transparent.toArgb(),
                 Color.Transparent.toArgb()
             )
         ) // System bar transparent
-        super.onCreate(savedInstanceState)
         setContent {
             var isDarkTheme by remember {
                 mutableStateOf<Boolean?>(null)
@@ -45,7 +53,8 @@ class MainActivity : ComponentActivity() {
                     NewsApp(
                         onDarkTheme = {
                             isDarkTheme = it
-                        }
+                        },
+                        onLoadingComplete = { isLoadingComplete = true }
                     )
                 }
             }

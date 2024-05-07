@@ -12,7 +12,8 @@ import com.gkp.home.presentation.homeScreen
 fun NewsAppGraph(
     modifier: Modifier,
     navController: NavHostController,
-    onDarkTheme: (Boolean?) -> Unit
+    onDarkTheme: (Boolean?) -> Unit,
+    onLoadingComplete: () -> Unit
 ) {
     NavHost(
         modifier = modifier,
@@ -21,7 +22,8 @@ fun NewsAppGraph(
     ) {
         homeScreen(
             navController = navController,
-            onDarkTheme = onDarkTheme
+            onDarkTheme = onDarkTheme,
+            onLoadingComplete = onLoadingComplete
         )
         bookmarksScreen()
     }
