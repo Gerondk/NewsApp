@@ -1,5 +1,8 @@
 @file:Suppress("UnstableApiUsage")
 
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -26,7 +29,9 @@ android {
     }
 
     buildTypes {
-        val key = System.getenv("NEWSAPP_API_KEY") ?: project.property("NEWSAPP_API_KEY")
+        val key = gradleLocalProperties(rootDir, rootProject.providers)
+            .getProperty("NEWSAPP_API_KEY")
+
         release {
             isMinifyEnabled = false
             proguardFiles(
