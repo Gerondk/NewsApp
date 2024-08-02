@@ -1,6 +1,11 @@
 package com.gkp.core
 
+import android.os.Build
 import android.util.Log
+import androidx.annotation.RequiresApi
+import java.time.Instant
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
 import java.util.concurrent.CancellationException
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
@@ -16,4 +21,12 @@ fun <T, R> safeApiCall(
     if (cause is CancellationException) throw cause
     emit(ResourceState.Error(cause.message))
     Log.d("ApiCallError", " error ${cause.message}")
+}
+
+@RequiresApi(Build.VERSION_CODES.O)
+fun formatDateString(instantString: String): String {
+    val instant = Instant.parse(instantString)
+    val localDateTime = instant.atZone(ZoneId.systemDefault()).toLocalDateTime()
+    val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")
+    return formatter.format(localDateTime)
 }

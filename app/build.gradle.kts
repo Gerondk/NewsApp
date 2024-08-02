@@ -9,6 +9,14 @@ plugins {
     kotlin("kapt")
     id("com.google.dagger.hilt.android")
     id("com.google.gms.google-services")
+    id("com.jaredsburrows.license")
+}
+
+licenseReport {
+    generateJsonReport = true
+    generateHtmlReport = true
+    generateCsvReport = false
+    copyHtmlReportToAssets = true
 }
 
 android {

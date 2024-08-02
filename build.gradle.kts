@@ -4,6 +4,7 @@ plugins {
     id("com.google.devtools.ksp") version "1.8.10-1.0.9" apply false
     id("com.google.gms.google-services") version "4.4.0" apply false
     id("org.jlleitschuh.gradle.ktlint") version "11.6.1"
+    id("com.jaredsburrows.license") version "0.9.8" apply false
 }
 
 subprojects {
@@ -18,4 +19,6 @@ subprojects {
         }
         disabledRules.set(setOf())
     }
+
+    apply(plugin = "com.jaredsburrows.license")
 }
