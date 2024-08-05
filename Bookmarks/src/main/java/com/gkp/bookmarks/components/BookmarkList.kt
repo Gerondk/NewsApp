@@ -1,5 +1,7 @@
 package com.gkp.bookmarks.components
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -15,6 +17,7 @@ import androidx.compose.ui.unit.dp
 import com.gkp.core.domain.NewsArticle
 import com.gkp.core.ui.NewsArticleItem
 
+@RequiresApi(Build.VERSION_CODES.O)
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun BookmarkedArticlesList(

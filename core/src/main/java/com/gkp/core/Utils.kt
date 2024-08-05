@@ -25,6 +25,7 @@ fun <T, R> safeApiCall(
 
 @RequiresApi(Build.VERSION_CODES.O)
 fun formatDateString(instantString: String): String {
+    println(" ARM_date : $instantString")
     val instant = Instant.parse(instantString)
     val localDateTime = instant.atZone(ZoneId.systemDefault()).toLocalDateTime()
     val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")

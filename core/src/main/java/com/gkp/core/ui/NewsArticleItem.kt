@@ -1,5 +1,7 @@
 package com.gkp.core.ui
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -29,6 +31,7 @@ import coil.compose.AsyncImage
 import com.gkp.core.R
 import com.gkp.core.domain.NewsArticle
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun NewsArticleItem(
     modifier: Modifier = Modifier,
@@ -67,7 +70,7 @@ fun NewsArticleItem(
                     overflow = TextOverflow.Ellipsis
                 )
                 Text(
-                    text = newsArticle.publishedDay ?: "",
+                    text = newsArticle.formattedPublishedDay,
                     fontSize = 15.sp,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis

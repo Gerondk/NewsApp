@@ -4,7 +4,6 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import com.gkp.core.data.newsArticles.local.NewsArticleEntity
 import com.gkp.core.domain.NewsArticle
-import com.gkp.core.formatDateString
 
 @RequiresApi(Build.VERSION_CODES.O)
 fun NewsArticleEntity.toNewsArticle() =
@@ -14,11 +13,12 @@ fun NewsArticleEntity.toNewsArticle() =
         title = title,
         url = url,
         urlToImage = urlToImage,
-        publishedDay = formatDateString(publishedDay ?: ""),
+        publishedDay = publishedDay,
         content = content,
         source = source
     )
 
+@RequiresApi(Build.VERSION_CODES.O)
 fun NewsArticle.toNewsArticleEntity() =
     NewsArticleEntity(
         id = id,

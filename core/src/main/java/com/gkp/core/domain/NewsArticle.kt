@@ -1,7 +1,10 @@
 package com.gkp.core.domain
 
+import android.os.Build
 import android.os.Parcelable
+import androidx.annotation.RequiresApi
 import com.gkp.core.data.newsArticles.model.Source
+import com.gkp.core.formatDateString
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
@@ -15,4 +18,8 @@ data class NewsArticle(
     val content: String? = null,
     val source: Source,
     val isBookMarked: Boolean = false
-) : Parcelable
+) : Parcelable {
+    val formattedPublishedDay: String
+        @RequiresApi(Build.VERSION_CODES.O)
+        get() = formatDateString(publishedDay ?: "")
+}

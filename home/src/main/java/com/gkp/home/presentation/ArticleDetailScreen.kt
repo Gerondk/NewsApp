@@ -1,5 +1,7 @@
 package com.gkp.home.presentation
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
@@ -31,6 +33,7 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.gkp.core.domain.NewsArticle
 
+@RequiresApi(Build.VERSION_CODES.O)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ArticleDetailScreen(
@@ -108,7 +111,7 @@ fun ArticleDetailScreen(
                     Spacer(modifier = Modifier.height(16.dp))
                     Text(text = newsArticle.content ?: "", fontSize = 14.sp)
                     Spacer(modifier = Modifier.height(16.dp))
-                    Text(text = newsArticle.publishedDay ?: "", fontSize = 14.sp)
+                    Text(text = newsArticle.formattedPublishedDay, fontSize = 14.sp)
                     Spacer(modifier = Modifier.height(16.dp))
                     Text(text = newsArticle.source.name, fontSize = 14.sp)
                 }
