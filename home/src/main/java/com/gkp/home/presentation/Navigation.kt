@@ -1,5 +1,7 @@
 package com.gkp.home.presentation
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.runtime.getValue
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -10,6 +12,8 @@ import com.gkp.core.Screens
 import com.gkp.core.domain.NewsArticle
 
 private const val NEWS_ARTICLES_DETAIL_ARG = "Detail"
+
+@RequiresApi(Build.VERSION_CODES.O)
 fun NavGraphBuilder.homeScreen(
     navController: NavController,
     onDarkTheme: (Boolean?) -> Unit,

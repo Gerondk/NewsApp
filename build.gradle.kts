@@ -5,6 +5,8 @@ plugins {
     id("com.google.gms.google-services") version "4.4.0" apply false
     id("org.jlleitschuh.gradle.ktlint") version "11.6.1"
     id("com.jaredsburrows.license") version "0.9.8" apply false
+    // Add the dependency for the Crashlytics Gradle plugin
+    id("com.google.firebase.crashlytics") version "3.0.2" apply false
 }
 
 subprojects {

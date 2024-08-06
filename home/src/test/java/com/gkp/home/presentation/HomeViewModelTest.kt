@@ -65,8 +65,7 @@ class HomeViewModelTest {
         homeViewModel = HomeViewModel(getTopHeadlinesUseCase, getBookmarkedArticles)
 
         homeViewModel.uiState.test {
-            val loadingEmission = awaitItem()
-
+            skipItems(1)
             val successEmission = awaitItem()
             assertThat(successEmission).isInstanceOf(HomeUiState.Success::class.java)
             val success = successEmission as HomeUiState.Success
@@ -85,8 +84,7 @@ class HomeViewModelTest {
         homeViewModel = HomeViewModel(getTopHeadlinesUseCase, getBookmarkedArticles)
 
         homeViewModel.uiState.test {
-            val loadingEmission = awaitItem()
-
+            skipItems(1)
             val errorEmission = awaitItem()
             assertThat(errorEmission).isInstanceOf(HomeUiState.Error::class.java)
             val error = errorEmission as HomeUiState.Error

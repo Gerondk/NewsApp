@@ -10,6 +10,7 @@ plugins {
     id("com.google.dagger.hilt.android")
     id("com.google.gms.google-services")
     id("com.jaredsburrows.license")
+    id("com.google.firebase.crashlytics")
 }
 
 licenseReport {
@@ -95,4 +96,12 @@ dependencies {
     bookmarksModule()
 
     testDependencies()
+
+    // Import the BoM for the Firebase platform
+    implementation(platform("com.google.firebase:firebase-bom:32.8.0"))
+
+    // Add the dependencies for the Crashlytics and Analytics libraries
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation("com.google.firebase:firebase-crashlytics")
+    implementation("com.google.firebase:firebase-analytics")
 }
